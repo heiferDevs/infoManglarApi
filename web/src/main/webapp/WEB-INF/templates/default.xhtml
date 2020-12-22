@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<h:outputStylesheet name="suia-layout.css" library="css" />
+	<h:outputStylesheet name="suia-styles.css" library="css" />
+	<h:outputStylesheet name="suia-pf-custom.css" library="css" />
+	<h:outputStylesheet name="login.css" library="css" />	
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/js/util.js"></script>		
+	<link rel="shortcut icon"
+		href="#{request.contextPath}/resources/images/favicon.ico" />
+	<title>DEMO</title>
+</h:head>
+<h:body onload="nobackbutton();">
+<h:form><p:poll interval="120" listener="#{loginBean.isLoggedIn()}" onerror="PF('sinconexion').show();" update="@this"/></h:form>
+	<div>
+		<div>
+		<div class="header-left-part"></div>
+		<div id="header" class="containerHeader">
+			<ui:insert name="header">
+				<ui:include src="/WEB-INF/templates/header.xhtml" />
+
+			</ui:insert>
+		</div>
+		<div class="container bordercontainers" style="margin-top:110px;">
+			<div id="page">
+				<br />
+				<div id="content">					
+					<ui:include src="/WEB-INF/templates/navegacion.xhtml" />
+					<ui:include src="/WEB-INF/templates/status.xhtml" />				
+					<ui:insert name="content">
+						<h:outputText value="INSERT CONTENT FOR TEMPLATE" />
+					</ui:insert>
+				</div>
+			</div>
+		</div>
+		<div class="ui-widget ui-widget-content alCenter containerFooter" style="height: 20px" >
+			<p:spacer></p:spacer>
+			<h:outputText value="Todos los derechos reservados - Ministerio del Ambiente 2016" />
+			<p:spacer></p:spacer>
+		</div>
+		<div id="footer" class="containerFooter">
+			<p:panel>
+				<ui:insert name="footer">
+					<ui:include src="/WEB-INF/templates/footer.xhtml" />
+				</ui:insert>
+			</p:panel>
+		</div>
+		<h:form>
+				<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+					<center>
+						<p:commandButton value="Aceptar" type="button"
+							styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+						<p:commandButton value="Cancelar" type="button"
+							styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+					</center>
+				</p:confirmDialog>
+			</h:form>
+	</div>
+	</div>
+	
+
+    <p:dialog header="Sin conexión" resizable="false"
+        widgetVar="sinconexion" modal="true" 
+        closable="false"
+        style="background-color:#FFF">
+        <center>
+        <h4>Estimado, Usuario</h4>
+  
+        <h5>Se ha perdido la conexión a internet.</h5>
+    
+        <f:facet name="footer">
+        <a href="../index.xhtml"><p:button value="Aceptar"  style="float:right"/></a>
+           
+        </f:facet>
+        </center>
+    </p:dialog>
+    
+		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+			<center>
+				<p:commandButton value="Aceptar" type="button"
+					styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+				<p:commandButton value="Cancelar" type="button"
+					styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+			</center>
+		</p:confirmDialog>
+</h:body>
+</html>

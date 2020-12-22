@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<!-- <link rel="stylesheet" type="text/css" href="/resources/css/suia.css" media="screen"/> -->
+	<h:outputStylesheet name="css/suia.css" />
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/js/util.js"></script>
+	<!-- <script type="text/javascript"
+		src="http://code.jquery.com/ui/1.9.0/jquery-ui.js" /> -->
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/js/jquery.mtz.monthpicker.js" />
+	<link rel="shortcut icon"
+		href="#{request.contextPath}/resources/images/favicon.ico" />
+	<title>DEMO</title>
+</h:head>
+<h:body>
+	<div>
+		<div id="header" class="containerHeader">
+			<ui:insert name="header">
+				<ui:include src="/WEB-INF/templates/headerIndex.xhtml" />
+
+			</ui:insert>
+		</div>
+		<div class="container bordercontainer containerIndex">
+		<div class="bordeVerde"><img src="#{request.contextPath}/resources/images/barra-login-Gradiente.png" alt="" 
+		style="display: none;"/></div>
+			<div id="page">
+				<br />
+				<div id="content">
+					<p:growl id="messages" autoUpdate="true" showDetail="true"
+						showSummary="true">
+					</p:growl>
+					<ui:insert name="content">
+
+					</ui:insert>
+				</div>
+			</div>
+		</div>
+		<h:form>
+			<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+				<p:commandButton value="#{messages['lbl.yes']}" type="button"
+					styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+				<p:commandButton value="#{messages['lbl.no']}" type="button"
+					styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+			</p:confirmDialog>
+		</h:form>
+	</div>
+</h:body>
+</html>

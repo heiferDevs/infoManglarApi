@@ -1,0 +1,50 @@
+{
+   "pricesFormId":14,
+   "formType":"prices-form",
+   "userId":107,
+   "organizationManglarId":9,
+   "priceDailies":[
+      {
+         "id":21,
+         "productType":"Productos bioacuáticos",
+         "bioAquaticType":"Pulpa de Cangrejo",
+         "bioAquaticPrice":2.0,
+         "crabPulpPounds":12.0,
+         "fileForms":[
+            {
+               "id":92,
+               "name":"o9productImage1579313151094.jpg",
+               "type":"photo",
+               "url":"http://10.0.2.2:8080/info-manglar/rest/file/images/o9productImage1579313151094.jpg",
+               "idOption":"productImage",
+               "alfrescoCode":"alfresco"
+            }
+         ]
+      },
+      {
+         "id":22,
+         "productType":"Productos bioacuáticos",
+         "bioAquaticType":"Concha",
+         "shellQuality":"Normal",
+         "bioAquaticPrice":3.0,
+         "shellCount":200,
+         "fileForms":[
+
+         ]
+      },
+      {
+         "id":23,
+         "productType":"Productos bioacuáticos",
+         "bioAquaticType":"Concha",
+         "shellQuality":"Normal",
+         "bioAquaticPrice":4.0,
+         "shellCount":200,
+         "fileForms":[
+
+         ]
+      }
+   ],
+   "name":"mss21",
+   "mobile":"090921",
+   "address":"saas"
+}

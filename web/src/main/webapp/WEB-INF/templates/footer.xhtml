@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" 
+	xmlns:t="http://myfaces.apache.org/tomahawk" 
+	xmlns:p="http://primefaces.org/ui">
+<body>
+	<ui:composition>	
+
+		<div id="footer" styleClass="containerFooter separatorTop" style="margin:0 auto;">	
+	
+			<h:panelGrid styleClass="w100 footer" columns="3" columnClasses="w33 alLeft, w33 alCenter, w33 alRight separatorRight">
+				<h:outputLink target="_blank" value="http://www.ambiente.gob.ec">
+					<img id="mae_img" src="#{request.contextPath}/resources/images/logo_suia_small.png" />
+				</h:outputLink>
+				<h:outputLink target="_blank" value="http://www.turismo.gob.ec">
+					<img id="mae_img" src="#{request.contextPath}/resources/images/turismo.png" />
+				</h:outputLink>
+				<h:outputText escape="false" value="Calle Madrid 1159 y Andalucía&lt;br/&gt;Código Postal: 170517 / Quito - Ecuador&lt;br/&gt;Teléfono: 593-2 398-7600&lt;br/&gt;www.ambiente.gob.ec" styleClass="ui-widget" />
+			</h:panelGrid>
+		</div>
+	</ui:composition>
+</body>
+</html>

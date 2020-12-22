@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+		http://www.springframework.org/schema/security
+                http://www.springframework.org/schema/security/spring-security-2.0.2.xsd">
+
+    <security:http auto-config="true"
+    access-denied-page="/index.xhtml" >
+        <security:intercept-url
+			pattern="/index.xhtml"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <security:intercept-url access="ROLE_URLACCESS" pattern="/pages/**"/>
+        <security:form-login login-page="/index.xhtml"
+                             default-target-url="/pages/bandejaTareas.xhtml"
+                             authentication-failure-url="/index.xhtml"
+                             always-use-default-target="true"/>
+        <security:logout  logout-success-url="/index.xhtml" />
+        <security:concurrent-session-control   max-sessions="1"   expired-url="/index.xhtml?sessionInvaild=true"  />
+    </security:http> 
+           
+   <security:authentication-provider  user-service-ref="userDetailsService"/>    
+    <bean class="ec.gob.ambiente.suia.spring.UserDetailsServiceImpl" id="userDetailsService">
+        <constructor-arg ref="userRepository"/>
+    </bean>
+    <bean class="ec.gob.ambiente.suia.spring.UserDaoImpl" id="userRepository"/>
+
+</beans>

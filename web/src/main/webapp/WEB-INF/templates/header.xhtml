@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:ui="http://java.sun.com/jsf/facelets" 
+	xmlns:p="http://primefaces.org/ui" xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:f="http://java.sun.com/jsf/core" 
+	xmlns:t="http://myfaces.apache.org/tomahawk">
+<head>
+<title>DEMO</title>
+<meta name="viewport" content="width=device-width" />
+</head>
+<body>
+	<ui:composition>
+	
+	<t:div styleClass="containerHeader">
+		<t:div styleClass="header-left-part-text" />
+		<t:div styleClass="header-right-part" />
+		<t:div styleClass="clear" />
+		<t:div styleClass="header-right-part-bar" />
+		<t:div styleClass="clear" />
+		
+		<h:form id="formMenu" rendered="#{loginBean.loggedIn}">
+			<p:menubar id="txt_count" model="#{loginBean.menuModel}" autoDisplay="false"/>
+		</h:form>
+		<t:div styleClass="separatorTop">
+			<h:form id="formUserBar" rendered="#{loginBean.loggedIn}">
+				<p:menubar>
+					<p:menuitem icon="icon-user" value="#{loginBean.completeName}" styleClass="barItemUser"
+					actionListener="#{loginBean.updateUser()}" update="@all"/>
+					<f:facet name="options">
+						<h:panelGrid colmuns="1" styleClass="barItemClose">
+							<p:commandLink value="Cerrar sesión" actionListener="#{loginBean.logout()}" process="@this" />
+						</h:panelGrid>
+					</f:facet>					
+				</p:menubar>
+				<p:poll interval="120" listener="#{loginBean.isLoggedIn()}" onerror="PF('sinconexion').show();" update="@none"/>
+			</h:form>
+			<t:div styleClass="clear" />
+		</t:div>
+		</t:div>
+
+<!-- 		<h:form id="formMenu"> -->
+<!-- 			<p:menubar> -->
+<!-- 				<p:menuitem value="INICIO" url="/pages/bandejaTareas.xhtml" -->
+<!-- 					icon="ui-icon ui-icon-home" /> -->
+
+<!-- 				Menú de administrador -->
+<!-- 				<p:submenu label="ADMINISTRACIÓN" icon="ui-icon-gear" 	rendered="#{rolAdmin}"> -->
+<!-- 					<p:menuitem url="/pages/announcementRegister.xhtml"	value="Registrar Convocatoria" /> -->
+<!-- 					<p:menuitem url="/pages/announcementSchedulePlaceRegister.xhtml" value="Lugar y Horario de Convocatoria" /> -->
+<!-- 					<p:menuitem url="/pages/cambiarHorarioPostulante.xhtml"	value="Cambiar Horario Postulante" />					 -->
+					
+<!-- 					<p:separator /> -->
+					
+<!-- 					<p:menuitem url="/pages/surveys.xhtml" value="Cuestionarios" /> -->
+<!-- 					<p:menuitem url="/pages/questions.xhtml" value="Banco de Preguntas" />									 -->
+<!-- 					<p:menuitem url="/pages/surveyQuestion.xhtml" value="Agregar Preguntas a Cuestionarios" rendered="true"/> -->
+					
+<!-- 					<p:separator /> -->
+<!-- 					<p:menuitem url="/pages/reportesPentaho/reportePostulantes.xhtml"	value="Reporte Postulantes" />	 -->
+<!-- 					<p:menuitem url="/pages/reportesPentaho/reportePostulantesCalificaciones.xhtml"	value="Reporte Calificaciones" />	 -->
+						
+<!-- 				</p:submenu> -->
+<!-- 				<p:menuitem icon="ui-icon-gear" value="EVALUACIONES"  url="/pages/userSurveysList.xhtml" rendered="#{rolAdmin}"/> -->
+<!-- 				Fin Menú de administrador	 -->
+				
+<!-- 				<p:menuitem icon="ui-icon-gear" value="Paso 1: CONVOCATORIA" action="#{userAnnouncementRegisterController.validarIngresoRegistro()}" rendered="#{!rolAdmin and loginBean.organization==null}"/> -->
+<!-- 				<p:menuitem icon="ui-icon-gear" value="Paso 2: EVALUACIÓN"  url="/pages/userSurveysList.xhtml" rendered="#{!rolAdmin and loginBean.organization==null}"/> -->
+<!-- 				<p:menuitem icon="ui-icon-gear" value="Paso 3: PROCESO DE CALIFICACION" url="/pages/CertificacionConsultoresAmbientales/iniciarProceso.xhtml" rendered="#{!rolAdmin and loginBean.organization==null}"/> -->
+<!-- 				<p:menuitem icon="ui-icon-gear" value="PROCESO DE CALIFICACIÓN" url="/pages/CertificacionConsultoresAmbientales/iniciarProceso.xhtml" rendered="#{!rolAdmin and loginBean.organization!=null}"/> -->
+				
+							
+
+<!-- 			</p:menubar> -->
+
+<!-- 			<div class="separatorTop"> -->
+<!-- 				<p:menubar> -->
+<!-- 					<p:menuitem icon="icon-user" ajax="false" -->
+<!-- 						value="Bienvenido #{loginBean.completeName}" -->
+<!-- 						immediate="true" styleClass="barItemUser" -->
+<!-- 						actionListener="#{loginBean.updateUser()}" update="@all"/> -->
+<!-- 					<f:facet name="options"> -->
+<!-- 						<h:panelGrid colmuns="1" styleClass="barItemClose"> -->
+<!-- 							<p:commandLink value="Cerrar sesión" actionListener="#{loginBean.logout()}" process="@this" /> -->
+<!-- 						</h:panelGrid> -->
+<!-- 					</f:facet> -->
+<!-- 				</p:menubar> -->
+<!-- 			</div> -->
+<!-- 		</h:form> -->
+
+		<p:dialog widgetVar="dialogMensaje" modal="true" resizable="false"
+			closable="false" draggable="false" header="Información">
+			<p:outputPanel autoUpdate="true">
+				<h:panelGrid columns="1" styleClass="w100">
+					<h:outputText value="No puede registrarse en la nueva convocatoria" />
+					<h:outputText
+						value="Debe esperar #{userAnnouncementRegisterController.periodoTiempo} desde la fecha de la evaluación " />
+					<h:outputText
+						value="para volver a registrarse en una nueva convocatoria." />
+				</h:panelGrid>
+				<div align="right">
+					<p:commandButton value="Aceptar"
+						onclick="PF('dialogMensaje').hide();" icon="ui-icon-check"
+						styleClass="primary" />
+				</div>
+			</p:outputPanel>
+		</p:dialog>
+
+	</ui:composition>
+</body>
+</html>

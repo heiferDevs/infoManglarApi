@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<body>
+	<ui:composition>
+
+		<table id="footer_tabla">
+
+			<tbody>
+				<tr>
+					<td id="footer_logo_1"><a target="_blank"
+						href="http://www.ambiente.gob.ec"> <img id="mae_img"
+							src="#{request.contextPath}/resources/images/logo_MAE_pie.png"></img>
+					</a></td>
+					<td id="footer_logo_2"><a target="_blank"
+						href="http://www.turismo.gob.ec"> <img
+							src="#{request.contextPath}/resources/images/logo_ama_pie.png"></img>
+					</a></td>
+					<td id="footer_contacto">
+					<h:outputText value="Calle Madrid 1159 y Andalucía " styleClass="ui-widget" />
+					<h:outputText value="Código Postal: 170517 / Quito - Ecuador" styleClass="ui-widget" /> 
+					<h:outputText value=" Teléfono: 593-2 398-7600" styleClass="ui-widget" /></td>
+				</tr>
+			</tbody>
+
+		</table>
+	</ui:composition>
+</body>
+</html>

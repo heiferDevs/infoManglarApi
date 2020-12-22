@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<!-- <link rel="stylesheet" type="text/css" href="/resources/css/suia.css" media="screen"/> -->
+	<h:outputStylesheet name="css/suia.css" />
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/js/util.js"></script>
+	<!-- <script type="text/javascript"
+		src="http://code.jquery.com/ui/1.9.0/jquery-ui.js" /> -->
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/js/jquery.mtz.monthpicker.js" />
+	<link rel="shortcut icon"
+		href="#{request.contextPath}/resources/images/favicon.ico" />
+	<title>DEMO</title>
+</h:head>
+<h:body>
+	<div>
+		<div id="header" class="containerHeader">
+			<ui:insert name="header">
+				<ui:include src="/WEB-INF/templates/header.xhtml" />
+
+			</ui:insert>
+		</div>
+		<div class="container bordercontainers">
+			<div id="page">
+				<br />
+				<div id="content">
+					<p:growl id="messages" autoUpdate="true" showDetail="true"
+						showSummary="true">
+					</p:growl>
+					<ui:insert name="content">
+
+					</ui:insert>
+				</div>
+			</div>
+		</div>
+		<div id="footer" class="containerFooter">
+			<p:panel>
+				<ui:insert name="footer">
+					<ui:include src="/WEB-INF/templates/footer.xhtml" />
+				</ui:insert>
+			</p:panel>
+		</div>
+		<h:form>
+			<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+				<p:commandButton value="#{messages['lbl.yes']}" type="button"
+					styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+				<p:commandButton value="#{messages['lbl.no']}" type="button"
+					styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+			</p:confirmDialog>
+		</h:form>
+	</div>
+	
+	<p:idleMonitor timeout="1800000" onidle="PF('sessionexpired').show();" />
+
+    <p:dialog header="Tiempo de espera agotado" resizable="false"
+        widgetVar="sessionexpired" modal="true" 
+        closable="false"
+        style="background-color:#FFF">
+        <center>
+        <h4>Estimado, Usuario</h4>
+  
+        <h5>El tiempo de espera ha sido agotado, inicie nuevamente</h5>
+    
+        <f:facet name="footer">
+        <center>
+        <a href="../index.xhtml"><p:button value="Aceptar"  /></a>
+        </center>   
+        </f:facet>
+        </center>
+    </p:dialog>
+</h:body>
+</html>
