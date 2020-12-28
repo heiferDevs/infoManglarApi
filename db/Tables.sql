@@ -1,6 +1,6 @@
 
 CREATE SCHEMA info_manglar
-    AUTHORIZATION postgres;
+    AUTHORIZATION app_user;
 
 
 CREATE TABLE info_manglar.organizations_manglar
@@ -14,7 +14,7 @@ CREATE TABLE info_manglar.organizations_manglar
 );
 
 ALTER TABLE info_manglar.organizations_manglar
-    OWNER to postgres;
+    OWNER to app_user;
 
 CREATE INDEX organization_manglar_id ON info_manglar.organizations_manglar USING btree (organization_manglar_id);
 
@@ -37,7 +37,7 @@ CREATE TABLE info_manglar.organizations_users
 );
 
 ALTER TABLE info_manglar.organizations_users
-    OWNER to postgres;
+    OWNER to app_user;
 
 CREATE INDEX orus_id ON info_manglar.organizations_users USING btree (orus_id);
 
@@ -61,7 +61,7 @@ CREATE TABLE info_manglar.email_notifications
 );
 
 ALTER TABLE info_manglar.email_notifications
-    OWNER to postgres;
+    OWNER to app_user;
 
 CREATE INDEX email_notification_id ON info_manglar.email_notifications USING btree (email_notification_id);
 
@@ -89,7 +89,7 @@ CREATE TABLE info_manglar.allowed_users
 );
 
 ALTER TABLE info_manglar.allowed_users
-    OWNER to postgres;
+    OWNER to app_user;
 
 CREATE INDEX allowed_user_id ON info_manglar.allowed_users USING btree (allowed_user_id);
 
@@ -116,7 +116,7 @@ CREATE TABLE info_manglar.history_changes
 );
 
 ALTER TABLE info_manglar.history_changes
-    OWNER to postgres;
+    OWNER to app_user;
 
 CREATE INDEX history_change_id ON info_manglar.history_changes USING btree (history_change_id);
 
@@ -148,7 +148,7 @@ CREATE TABLE info_manglar.reforestation_forms
 );
 
 ALTER TABLE info_manglar.reforestation_forms
-    OWNER to postgres;
+    OWNER to app_user;
 
 CREATE INDEX reforestation_form_id ON info_manglar.reforestation_forms USING btree (reforestation_form_id);
 
@@ -169,7 +169,7 @@ CREATE TABLE info_manglar.reforestation_forms_vertices
 );
 
 ALTER TABLE info_manglar.reforestation_forms_vertices
-    OWNER to postgres;
+    OWNER to app_user;
 
 
 CREATE TABLE info_manglar.reforestation_forms_entities
@@ -181,7 +181,7 @@ CREATE TABLE info_manglar.reforestation_forms_entities
 );
 
 ALTER TABLE info_manglar.reforestation_forms_entities
-    OWNER to postgres;
+    OWNER to app_user;
 
 
 CREATE TABLE info_manglar.management_plan_forms
@@ -199,7 +199,7 @@ CREATE TABLE info_manglar.management_plan_forms
 );
 
 ALTER TABLE info_manglar.management_plan_forms
-    OWNER to postgres;
+    OWNER to app_user;
 
 CREATE INDEX management_plan_form_id ON info_manglar.management_plan_forms USING btree (management_plan_form_id);
 
@@ -224,7 +224,7 @@ CREATE TABLE info_manglar.plans_info
 );
 
 ALTER TABLE info_manglar.plans_info
-    OWNER to postgres;
+    OWNER to app_user;
 
 CREATE INDEX plan_info_id ON info_manglar.plans_info USING btree (plan_info_id);
 
@@ -259,7 +259,7 @@ CREATE TABLE info_manglar.shell_collection_forms
 );
 
 ALTER TABLE info_manglar.shell_collection_forms
-    OWNER to postgres;
+    OWNER to app_user;
 
 CREATE INDEX shell_collection_form_id ON info_manglar.shell_collection_forms USING btree (shell_collection_form_id);
 
@@ -297,7 +297,7 @@ CREATE TABLE info_manglar.crab_collection_forms
 );
 
 ALTER TABLE info_manglar.crab_collection_forms
-    OWNER to postgres;
+    OWNER to app_user;
 
 CREATE INDEX crab_collection_form_id ON info_manglar.crab_collection_forms USING btree (crab_collection_form_id);
 
@@ -338,7 +338,7 @@ CREATE TABLE info_manglar.control_forms
 );
 
 ALTER TABLE info_manglar.control_forms
-    OWNER to postgres;
+    OWNER to app_user;
 
 CREATE INDEX control_form_id ON info_manglar.control_forms USING btree (control_form_id);
 
@@ -371,7 +371,7 @@ CREATE TABLE info_manglar.social_indicators_forms
 );
 
 ALTER TABLE info_manglar.social_indicators_forms
-    OWNER to postgres;
+    OWNER to app_user;
 
 CREATE INDEX social_indicators_form_id ON info_manglar.social_indicators_forms USING btree (social_indicators_form_id);
 
@@ -402,7 +402,7 @@ CREATE TABLE info_manglar.economic_indicators_forms
 );
 
 ALTER TABLE info_manglar.economic_indicators_forms
-    OWNER to postgres;
+    OWNER to app_user;
 
 CREATE INDEX economic_indicators_form_id ON info_manglar.economic_indicators_forms USING btree (economic_indicators_form_id);
 
@@ -438,7 +438,7 @@ CREATE TABLE info_manglar.deforestation_forms
 );
 
 ALTER TABLE info_manglar.deforestation_forms
-    OWNER to postgres;
+    OWNER to app_user;
 
 CREATE INDEX deforestation_form_id ON info_manglar.deforestation_forms USING btree (deforestation_form_id);
 
@@ -470,7 +470,7 @@ CREATE TABLE info_manglar.crab_size_forms
 );
 
 ALTER TABLE info_manglar.crab_size_forms
-    OWNER to postgres;
+    OWNER to app_user;
 
 CREATE INDEX crab_size_form_id ON info_manglar.crab_size_forms USING btree (crab_size_form_id);
 
@@ -504,7 +504,7 @@ CREATE TABLE info_manglar.shell_size_forms
 );
 
 ALTER TABLE info_manglar.shell_size_forms
-    OWNER to postgres;
+    OWNER to app_user;
 
 CREATE INDEX shell_size_form_id ON info_manglar.shell_size_forms USING btree (shell_size_form_id);
 
@@ -541,7 +541,7 @@ CREATE TABLE info_manglar.info_veda_forms
 );
 
 ALTER TABLE info_manglar.info_veda_forms
-    OWNER to postgres;
+    OWNER to app_user;
 
 CREATE INDEX info_veda_form_id ON info_manglar.info_veda_forms USING btree (info_veda_form_id);
 
@@ -578,7 +578,7 @@ CREATE TABLE info_manglar.investments_orgs_forms
 );
 
 ALTER TABLE info_manglar.investments_orgs_forms
-    OWNER to postgres;
+    OWNER to app_user;
 
 CREATE INDEX investments_orgs_form_id ON info_manglar.investments_orgs_forms USING btree (investments_orgs_form_id);
 
@@ -611,7 +611,7 @@ CREATE TABLE info_manglar.desc_projects_forms
 );
 
 ALTER TABLE info_manglar.desc_projects_forms
-    OWNER to postgres;
+    OWNER to app_user;
 
 CREATE INDEX desc_projects_form_id ON info_manglar.desc_projects_forms USING btree (desc_projects_form_id);
 
@@ -636,7 +636,7 @@ CREATE TABLE info_manglar.documents_projects
 );
 
 ALTER TABLE info_manglar.documents_projects
-    OWNER to postgres;
+    OWNER to app_user;
 
 CREATE INDEX document_project_id ON info_manglar.documents_projects USING btree (document_project_id);
 
@@ -668,7 +668,7 @@ CREATE TABLE info_manglar.evidence_forms
 );
 
 ALTER TABLE info_manglar.evidence_forms
-    OWNER to postgres;
+    OWNER to app_user;
 
 CREATE INDEX evidence_form_id ON info_manglar.evidence_forms USING btree (evidence_form_id);
 
@@ -692,7 +692,7 @@ CREATE TABLE info_manglar.evidence_activities
 );
 
 ALTER TABLE info_manglar.evidence_activities
-    OWNER to postgres;
+    OWNER to app_user;
 
 CREATE INDEX evidence_activity_id ON info_manglar.evidence_activities USING btree (evidence_activity_id);
 
@@ -719,7 +719,7 @@ CREATE TABLE info_manglar.plan_tracking_forms
 );
 
 ALTER TABLE info_manglar.plan_tracking_forms
-    OWNER to postgres;
+    OWNER to app_user;
 
 CREATE INDEX plan_tracking_form_id ON info_manglar.plan_tracking_forms USING btree (plan_tracking_form_id);
 
@@ -744,7 +744,7 @@ CREATE TABLE info_manglar.planned_activities
 );
 
 ALTER TABLE info_manglar.planned_activities
-    OWNER to postgres;
+    OWNER to app_user;
 
 CREATE INDEX planned_activity_id ON info_manglar.planned_activities USING btree (planned_activity_id);
 
@@ -775,7 +775,7 @@ CREATE TABLE info_manglar.prices_forms
 );
 
 ALTER TABLE info_manglar.prices_forms
-    OWNER to postgres;
+    OWNER to app_user;
 
 CREATE INDEX prices_form_id ON info_manglar.prices_forms USING btree (prices_form_id);
 
@@ -817,7 +817,7 @@ CREATE TABLE info_manglar.prices_dailies
 );
 
 ALTER TABLE info_manglar.prices_dailies
-    OWNER to postgres;
+    OWNER to app_user;
 
 CREATE INDEX price_daily_id ON info_manglar.prices_dailies USING btree (price_daily_id);
 
@@ -844,7 +844,7 @@ CREATE TABLE info_manglar.mapping_forms
 );
 
 ALTER TABLE info_manglar.mapping_forms
-    OWNER to postgres;
+    OWNER to app_user;
 
 CREATE INDEX mapping_form_id ON info_manglar.mapping_forms USING btree (mapping_form_id);
 
@@ -867,7 +867,7 @@ CREATE TABLE info_manglar.orgs_mapping
 );
 
 ALTER TABLE info_manglar.orgs_mapping
-    OWNER to postgres;
+    OWNER to app_user;
 
 CREATE INDEX org_mapping_id ON info_manglar.orgs_mapping USING btree (org_mapping_id);
 
@@ -906,7 +906,7 @@ CREATE TABLE info_manglar.officials_docs_forms
 );
 
 ALTER TABLE info_manglar.officials_docs_forms
-    OWNER to postgres;
+    OWNER to app_user;
 
 CREATE INDEX official_docs_form_id ON info_manglar.officials_docs_forms USING btree (official_docs_form_id);
 
@@ -940,7 +940,7 @@ CREATE TABLE info_manglar.sectors_forms
 );
 
 ALTER TABLE info_manglar.sectors_forms
-    OWNER to postgres;
+    OWNER to app_user;
 
 CREATE INDEX sector_form_id ON info_manglar.sectors_forms USING btree (sector_form_id);
 
@@ -973,7 +973,7 @@ CREATE TABLE info_manglar.sectors_collections_forms
 );
 
 ALTER TABLE info_manglar.sectors_collections_forms
-    OWNER to postgres;
+    OWNER to app_user;
 
 CREATE INDEX sector_collection_form_id ON info_manglar.sectors_collections_forms USING btree (sector_collection_form_id);
 
@@ -1005,7 +1005,7 @@ CREATE TABLE info_manglar.size_forms
 );
 
 ALTER TABLE info_manglar.size_forms
-    OWNER to postgres;
+    OWNER to app_user;
 
 CREATE INDEX size_form_id ON info_manglar.size_forms USING btree (size_form_id);
 
@@ -1046,7 +1046,7 @@ CREATE TABLE info_manglar.files_forms
 );
 
 ALTER TABLE info_manglar.files_forms
-    OWNER to postgres;
+    OWNER to app_user;
 
 CREATE INDEX file_form_id ON info_manglar.files_forms USING btree (file_form_id);
 
