@@ -20,7 +20,7 @@ import ec.gob.ambiente.infomanglar.model.OrganizationManglar;
 import ec.gob.ambiente.infomanglar.services.AllowedUserFacade;
 import ec.gob.ambiente.infomanglar.services.OrganizationManglarFacade;
 
-@Path("/")
+@Path("/validate-pin")
 public class ValidatePinResource {
 
 	@EJB
@@ -39,7 +39,6 @@ public class ValidatePinResource {
 	private RoleFacade roleFacade;
 
 	@POST
-	@Path("/validate-pin")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public DataUserValidate validatePinSocio(DataValidate dataValidate) {
