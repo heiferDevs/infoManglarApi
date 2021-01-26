@@ -12,14 +12,14 @@ import ec.gob.ambiente.api.model.DataResponse;
 import ec.gob.ambiente.infomanglar.forms.model.ConfigForm;
 import ec.gob.ambiente.infomanglar.forms.services.ConfigFormFacade;
 
-@Path("/")
+@Path("/config-form")
 public class ConfigFormResource {
 
 	@EJB
 	private ConfigFormFacade configFormFacade;
 
 	@POST
-	@Path("/config-form/save")
+	@Path("/save")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public DataResponse save(ConfigForm configForm) {
@@ -32,7 +32,7 @@ public class ConfigFormResource {
 
 
 	@GET
-	@Path("/config-form/get")
+	@Path("/get")
 	@Produces(MediaType.APPLICATION_JSON)
 	public ConfigForm getLast() {
 		ConfigForm form = configFormFacade.getLast();
