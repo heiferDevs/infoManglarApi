@@ -19,7 +19,7 @@ import ec.gob.ambiente.infomanglar.forms.model.EconomicIndicatorsForm;
 import ec.gob.ambiente.infomanglar.forms.services.EconomicIndicatorsFormFacade;
 import ec.gob.ambiente.infomanglar.services.HistoryChangeFacade;
 
-@Path("/")
+@Path("/economic-indicators-form")
 public class EconomicIndicatorsFormResource {
 
 	@EJB
@@ -32,7 +32,7 @@ public class EconomicIndicatorsFormResource {
 	private HistoryChangeFacade historyChangeFacade;
 
 	@POST
-	@Path("/economic-indicators-form/save")
+	@Path("/save")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public DataResponse save(EconomicIndicatorsForm economicIndicatorsForm) {
@@ -47,21 +47,21 @@ public class EconomicIndicatorsFormResource {
 	}
 
 	@GET
-	@Path("/economic-indicators-form/get")
+	@Path("/get")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<EconomicIndicatorsForm> get() {
 		return economicIndicatorsFormFacade.findAll();
 	}
 
 	@GET
-	@Path("/economic-indicators-form/get/{form-id}")
+	@Path("/get/{form-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public EconomicIndicatorsForm getById(@PathParam("form-id") Integer formId) {
 		return economicIndicatorsFormFacade.find(formId);
 	}
 
 	@GET
-	@Path("/economic-indicators-form/get-last/{org-id}")
+	@Path("/get-last/{org-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public EconomicIndicatorsForm getLast(@PathParam("org-id") Integer orgId) {
 		EconomicIndicatorsForm form = economicIndicatorsFormFacade.getLastByOrg(orgId);

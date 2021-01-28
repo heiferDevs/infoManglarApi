@@ -22,7 +22,7 @@ import ec.gob.ambiente.infomanglar.model.Agreement;
 import ec.gob.ambiente.infomanglar.model.DocumentProject;
 import ec.gob.ambiente.infomanglar.services.HistoryChangeFacade;
 
-@Path("/")
+@Path("/official-docs-form")
 public class OfficialDocsFormResource {
 
 	@EJB
@@ -35,7 +35,7 @@ public class OfficialDocsFormResource {
 	private UserFacade userFacade;
 
 	@POST
-	@Path("/official-docs-form/save")
+	@Path("/save")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public DataResponse save(OfficialDocsForm officialDocsForm) {
@@ -63,21 +63,21 @@ public class OfficialDocsFormResource {
 	}
 
 	@GET
-	@Path("/official-docs-form/get")
+	@Path("/get")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<OfficialDocsForm> get() {
 		return officialDocsFormFacade.findAll();
 	}
 
 	@GET
-	@Path("/official-docs-form/get/{form-id}")
+	@Path("/get/{form-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public OfficialDocsForm getById(@PathParam("form-id") Integer formId) {
 		return officialDocsFormFacade.find(formId);
 	}
 
 	@GET
-	@Path("/official-docs-form/get-last/{org-id}")
+	@Path("/get-last/{org-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public OfficialDocsForm getLast(@PathParam("org-id") Integer orgId) {
 		OfficialDocsForm form = officialDocsFormFacade.getLastByOrg(orgId);

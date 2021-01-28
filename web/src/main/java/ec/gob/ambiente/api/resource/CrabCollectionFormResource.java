@@ -18,7 +18,7 @@ import ec.gob.ambiente.infomanglar.forms.model.CrabCollectionForm;
 import ec.gob.ambiente.infomanglar.forms.services.CrabCollectionFormFacade;
 import ec.gob.ambiente.infomanglar.services.HistoryChangeFacade;
 
-@Path("/")
+@Path("/crab-collection-form")
 public class CrabCollectionFormResource {
 
 	@EJB
@@ -31,7 +31,7 @@ public class CrabCollectionFormResource {
 	private UserFacade userFacade;
 
 	@POST
-	@Path("/crab-collection-form/save")
+	@Path("/save")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public DataResponse save(CrabCollectionForm crabCollectionForm) {
@@ -46,21 +46,21 @@ public class CrabCollectionFormResource {
 	}
 
 	@GET
-	@Path("/crab-collection-form/get")
+	@Path("/get")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<CrabCollectionForm> get() {
 		return crabCollectionFormFacade.findAll();
 	}
 
 	@GET
-	@Path("/crab-collection-form/get/{form-id}")
+	@Path("/get/{form-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public CrabCollectionForm getById(@PathParam("form-id") Integer formId) {
 		return crabCollectionFormFacade.find(formId);
 	}
 
 	@GET
-	@Path("/crab-collection-form/get-last/{org-id}/{user-id}")
+	@Path("/get-last/{org-id}/{user-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public CrabCollectionForm getLast(@PathParam("org-id") Integer orgId, @PathParam("user-id") Integer userId) {
 		CrabCollectionForm form = crabCollectionFormFacade.getLastByOrgAndUser(orgId, userId);

@@ -23,7 +23,7 @@ import ec.gob.ambiente.infomanglar.model.OrganizationManglar;
 import ec.gob.ambiente.infomanglar.services.HistoryChangeFacade;
 import ec.gob.ambiente.infomanglar.services.OrganizationManglarFacade;
 
-@Path("/")
+@Path("/limits-form")
 public class LimitsFormResource {
 
 	@EJB
@@ -39,7 +39,7 @@ public class LimitsFormResource {
 	private UserFacade userFacade;
 
 	@POST
-	@Path("/limits-form/save")
+	@Path("/save")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public DataResponse save(LimitsForm limitsForm) {
@@ -68,21 +68,21 @@ public class LimitsFormResource {
 	}
 
 	@GET
-	@Path("/limits-form/get")
+	@Path("/get")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<LimitsForm> get() {
 		return limitsFormFacade.findAll();
 	}
 
 	@GET
-	@Path("/limits-form/get/{form-id}")
+	@Path("/get/{form-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public LimitsForm getById(@PathParam("form-id") Integer formId) {
 		return limitsFormFacade.find(formId);
 	}
 
 	@GET
-	@Path("/limits-form/get-last/{org-id}")
+	@Path("/get-last/{org-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public LimitsForm getLast(@PathParam("org-id") Integer orgId) {
 		LimitsForm form = limitsFormFacade.getLastByOrg(orgId);

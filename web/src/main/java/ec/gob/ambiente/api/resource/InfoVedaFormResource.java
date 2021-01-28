@@ -18,7 +18,7 @@ import ec.gob.ambiente.infomanglar.forms.model.InfoVedaForm;
 import ec.gob.ambiente.infomanglar.forms.services.InfoVedaFormFacade;
 import ec.gob.ambiente.infomanglar.services.HistoryChangeFacade;
 
-@Path("/")
+@Path("/info-veda-form")
 public class InfoVedaFormResource {
 
 	@EJB
@@ -31,7 +31,7 @@ public class InfoVedaFormResource {
 	private UserFacade userFacade;
 
 	@POST
-	@Path("/info-veda-form/save")
+	@Path("/save")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public DataResponse save(InfoVedaForm infoVedaForm) {
@@ -46,21 +46,21 @@ public class InfoVedaFormResource {
 	}
 
 	@GET
-	@Path("/info-veda-form/get")
+	@Path("/get")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<InfoVedaForm> get() {
 		return infoVedaFormFacade.findAll();
 	}
 
 	@GET
-	@Path("/info-veda-form/get/{form-id}")
+	@Path("/get/{form-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public InfoVedaForm getById(@PathParam("form-id") Integer formId) {
 		return infoVedaFormFacade.find(formId);
 	}
 
 	@GET
-	@Path("/info-veda-form/get-last/{org-id}")
+	@Path("/get-last/{org-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public InfoVedaForm getLast(@PathParam("org-id") Integer orgId) {
 		InfoVedaForm form = infoVedaFormFacade.getLastByOrg(orgId);

@@ -19,7 +19,7 @@ import ec.gob.ambiente.infomanglar.forms.model.FileForm;
 import ec.gob.ambiente.infomanglar.forms.services.PdfReportFormFacade;
 import ec.gob.ambiente.infomanglar.services.HistoryChangeFacade;
 
-@Path("/")
+@Path("/pdf-report-form")
 public class PdfReportFormResource {
 
 	@EJB
@@ -32,7 +32,7 @@ public class PdfReportFormResource {
 	private UserFacade userFacade;
 
 	@POST
-	@Path("/pdf-report-form/save")
+	@Path("/save")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public DataResponse save(PdfReportForm pdfReportForm) {
@@ -59,31 +59,31 @@ public class PdfReportFormResource {
 		PdfReportForm pdfReportForm = pdfReportFormFacade.find(formId);
 		pdfReportFormFacade.remove(pdfReportForm);
 		return new DataResponse(DataResponse.SUCCESS_STATE);
-	}
+	} // TODO: Move this endpoint to other class
 
 	@GET
-	@Path("/pdf-report-form/get")
+	@Path("/get")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<PdfReportForm> get() {
 		return pdfReportFormFacade.findAll();
 	}
 
 	@GET
-	@Path("/pdf-report-form/get-by-org/{org-id}")
+	@Path("/get-by-org/{org-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<PdfReportForm> getByOrg(@PathParam("org-id") Integer orgId) {
 		return pdfReportFormFacade.getByOrg(orgId);
 	}
 
 	@GET
-	@Path("/pdf-report-form/get-by-org-published/{org-id}")
+	@Path("/get-by-org-published/{org-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<PdfReportForm> getByOrgPublished(@PathParam("org-id") Integer orgId) {
 		return pdfReportFormFacade.getByOrgPublished(orgId);
 	}
 
 	@GET
-	@Path("/pdf-report-form/get-last/{org-id}")
+	@Path("/get-last/{org-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public PdfReportForm getLast(@PathParam("org-id") Integer orgId) {
 		PdfReportForm form = pdfReportFormFacade.getLastByOrg(orgId);
@@ -92,7 +92,7 @@ public class PdfReportFormResource {
 	}
 
 	@GET
-	@Path("/pdf-report-form/get/{form-id}")
+	@Path("/get/{form-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public PdfReportForm getById(@PathParam("form-id") Integer formId) {
 		return pdfReportFormFacade.find(formId);

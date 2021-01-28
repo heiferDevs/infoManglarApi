@@ -19,7 +19,7 @@ import ec.gob.ambiente.infomanglar.forms.model.InvestmentsOrgsForm;
 import ec.gob.ambiente.infomanglar.forms.services.InvestmentsOrgsFormFacade;
 import ec.gob.ambiente.infomanglar.services.HistoryChangeFacade;
 
-@Path("/")
+@Path("/investments-orgs-form")
 public class InvestmentsOrgsFormResource {
 
 	@EJB
@@ -32,7 +32,7 @@ public class InvestmentsOrgsFormResource {
 	private HistoryChangeFacade historyChangeFacade;
 
 	@POST
-	@Path("/investments-orgs-form/save")
+	@Path("/save")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public DataResponse save(InvestmentsOrgsForm investmentsOrgsForm) {
@@ -47,21 +47,21 @@ public class InvestmentsOrgsFormResource {
 	}
 
 	@GET
-	@Path("/investments-orgs-form/get")
+	@Path("/get")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<InvestmentsOrgsForm> get() {
 		return investmentsOrgsFormFacade.findAll();
 	}
 
 	@GET
-	@Path("/investments-orgs-form/get/{form-id}")
+	@Path("/get/{form-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public InvestmentsOrgsForm getById(@PathParam("form-id") Integer formId) {
 		return investmentsOrgsFormFacade.find(formId);
 	}
 
 	@GET
-	@Path("/investments-orgs-form/get-last/{org-id}")
+	@Path("/get-last/{org-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public InvestmentsOrgsForm getLast(@PathParam("org-id") Integer orgId) {
 		InvestmentsOrgsForm form = investmentsOrgsFormFacade.getLastByOrg(orgId);

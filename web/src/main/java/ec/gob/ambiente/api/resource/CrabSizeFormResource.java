@@ -19,7 +19,7 @@ import ec.gob.ambiente.infomanglar.forms.model.SizeForm;
 import ec.gob.ambiente.infomanglar.forms.services.CrabSizeFormFacade;
 import ec.gob.ambiente.infomanglar.services.HistoryChangeFacade;
 
-@Path("/")
+@Path("/crab-size-form")
 public class CrabSizeFormResource {
 
 	@EJB
@@ -32,7 +32,7 @@ public class CrabSizeFormResource {
 	private UserFacade userFacade;
 
 	@POST
-	@Path("/crab-size-form/save")
+	@Path("/save")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public DataResponse save(CrabSizeForm crabSizeForm) {
@@ -50,21 +50,21 @@ public class CrabSizeFormResource {
 	}
 
 	@GET
-	@Path("/crab-size-form/get")
+	@Path("/get")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<CrabSizeForm> get() {
 		return crabSizeFormFacade.findAll();
 	}
 
 	@GET
-	@Path("/crab-size-form/get/{form-id}")
+	@Path("/get/{form-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public CrabSizeForm getById(@PathParam("form-id") Integer formId) {
 		return crabSizeFormFacade.find(formId);
 	}
 
 	@GET
-	@Path("/crab-size-form/get-last/{org-id}")
+	@Path("/get-last/{org-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public CrabSizeForm getLast(@PathParam("org-id") Integer orgId) {
 		CrabSizeForm form = crabSizeFormFacade.getLastByOrg(orgId);

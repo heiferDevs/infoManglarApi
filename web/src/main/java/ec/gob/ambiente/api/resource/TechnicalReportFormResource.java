@@ -19,7 +19,7 @@ import ec.gob.ambiente.infomanglar.forms.model.TechnicalReportForm;
 import ec.gob.ambiente.infomanglar.forms.services.TechnicalReportFormFacade;
 import ec.gob.ambiente.infomanglar.services.HistoryChangeFacade;
 
-@Path("/")
+@Path("/technical-report-form")
 public class TechnicalReportFormResource {
 
 	@EJB
@@ -32,7 +32,7 @@ public class TechnicalReportFormResource {
 	private UserFacade userFacade;
 
 	@POST
-	@Path("/technical-report-form/save")
+	@Path("/save")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public DataResponse save(TechnicalReportForm technicalReportForm) {
@@ -52,21 +52,21 @@ public class TechnicalReportFormResource {
 	}
 
 	@GET
-	@Path("/technical-report-form/get")
+	@Path("/get")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<TechnicalReportForm> get() {
 		return technicalReportFormFacade.findAll();
 	}
 
 	@GET
-	@Path("/technical-report-form/get/{form-id}")
+	@Path("/get/{form-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public TechnicalReportForm getById(@PathParam("form-id") Integer formId) {
 		return technicalReportFormFacade.find(formId);
 	}
 
 	@GET
-	@Path("/technical-report-form/get-last/{org-id}")
+	@Path("/get-last/{org-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public TechnicalReportForm getLast(@PathParam("org-id") Integer orgId) {
 		TechnicalReportForm form = technicalReportFormFacade.getLastByOrg(orgId);

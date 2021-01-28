@@ -18,7 +18,7 @@ import ec.gob.ambiente.infomanglar.forms.model.ShellCollectionForm;
 import ec.gob.ambiente.infomanglar.forms.services.ShellCollectionFormFacade;
 import ec.gob.ambiente.infomanglar.services.HistoryChangeFacade;
 
-@Path("/")
+@Path("/shell-collection-form")
 public class ShellCollectionFormResource {
 
 	@EJB
@@ -31,7 +31,7 @@ public class ShellCollectionFormResource {
 	private UserFacade userFacade;
 
 	@POST
-	@Path("/shell-collection-form/save")
+	@Path("/save")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public DataResponse save(ShellCollectionForm shellCollectionForm) {
@@ -46,21 +46,21 @@ public class ShellCollectionFormResource {
 	}
 
 	@GET
-	@Path("/shell-collection-form/get")
+	@Path("/get")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<ShellCollectionForm> get() {
 		return shellCollectionFormFacade.findAll();
 	}
 
 	@GET
-	@Path("/shell-collection-form/get/{form-id}")
+	@Path("/get/{form-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public ShellCollectionForm getById(@PathParam("form-id") Integer formId) {
 		return shellCollectionFormFacade.find(formId);
 	}
 
 	@GET
-	@Path("/shell-collection-form/get-last/{org-id}/{user-id}")
+	@Path("/get-last/{org-id}/{user-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public ShellCollectionForm getLast(@PathParam("org-id") Integer orgId, @PathParam("user-id") Integer userId) {
 		ShellCollectionForm form = shellCollectionFormFacade.getLastByOrgAndUser(orgId, userId);

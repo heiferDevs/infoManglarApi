@@ -19,7 +19,7 @@ import ec.gob.ambiente.infomanglar.forms.model.DeforestationForm;
 import ec.gob.ambiente.infomanglar.forms.services.DeforestationFormFacade;
 import ec.gob.ambiente.infomanglar.services.HistoryChangeFacade;
 
-@Path("/")
+@Path("/deforestation-form")
 public class DeforestationFormResource {
 
 	@EJB
@@ -32,7 +32,7 @@ public class DeforestationFormResource {
 	private UserFacade userFacade;
 
 	@POST
-	@Path("/deforestation-form/save")
+	@Path("/save")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public DataResponse save(DeforestationForm deforestationForm) {
@@ -47,21 +47,21 @@ public class DeforestationFormResource {
 	}
 
 	@GET
-	@Path("/deforestation-form/get")
+	@Path("/get")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<DeforestationForm> get() {
 		return deforestationFormFacade.findAll();
 	}
 
 	@GET
-	@Path("/deforestation-form/get/{form-id}")
+	@Path("/get/{form-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public DeforestationForm getById(@PathParam("form-id") Integer formId) {
 		return deforestationFormFacade.find(formId);
 	}
 
 	@GET
-	@Path("/deforestation-form/get-last/{org-id}")
+	@Path("/get-last/{org-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public DeforestationForm getLast(@PathParam("org-id") Integer orgId) {
 		DeforestationForm form = deforestationFormFacade.getLastByOrg(orgId);

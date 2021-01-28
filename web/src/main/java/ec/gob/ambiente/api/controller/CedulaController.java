@@ -9,7 +9,8 @@ public class CedulaController {
 	public Cedula getCedula(String pin){
 		if (!JsfUtil.validarCedulaORUC(pin)){
 			return getCedulaError();
-	  	}
+		  }
+		//   TODO: Registro Civil develop missing
     	RegistroCivilController regCivil=new RegistroCivilController();
     	Cedula cedula = regCivil.consultarCedula(pin);
     	if (cedula == null) return getCedulaError();

@@ -19,7 +19,7 @@ import ec.gob.ambiente.infomanglar.forms.model.SemiAnnualReportForm;
 import ec.gob.ambiente.infomanglar.forms.services.SemiAnnualReportFormFacade;
 import ec.gob.ambiente.infomanglar.services.HistoryChangeFacade;
 
-@Path("/")
+@Path("/semi-annual-report-form")
 public class SemiAnnualReportFormResource {
 
 	@EJB
@@ -32,7 +32,7 @@ public class SemiAnnualReportFormResource {
 	private UserFacade userFacade;
 
 	@POST
-	@Path("/semi-annual-report-form/save")
+	@Path("/save")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public DataResponse save(SemiAnnualReportForm semiAnnualReportForm) {
@@ -52,21 +52,21 @@ public class SemiAnnualReportFormResource {
 	}
 
 	@GET
-	@Path("/semi-annual-report-form/get")
+	@Path("/get")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<SemiAnnualReportForm> get() {
 		return semiAnnualReportFormFacade.findAll();
 	}
 
 	@GET
-	@Path("/semi-annual-report-form/get/{form-id}")
+	@Path("/get/{form-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public SemiAnnualReportForm getById(@PathParam("form-id") Integer formId) {
 		return semiAnnualReportFormFacade.find(formId);
 	}
 
 	@GET
-	@Path("/semi-annual-report-form/get-last/{org-id}")
+	@Path("/get-last/{org-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public SemiAnnualReportForm getLast(@PathParam("org-id") Integer orgId) {
 		SemiAnnualReportForm form = semiAnnualReportFormFacade.getLastByOrg(orgId);

@@ -23,7 +23,7 @@ import ec.gob.ambiente.infomanglar.model.OrganizationManglar;
 import ec.gob.ambiente.infomanglar.services.HistoryChangeFacade;
 import ec.gob.ambiente.infomanglar.services.OrganizationManglarFacade;
 
-@Path("/")
+@Path("/mapping-form")
 public class MappingFormResource {
 
 	@EJB
@@ -39,7 +39,7 @@ public class MappingFormResource {
 	private UserFacade userFacade;
 
 	@POST
-	@Path("/mapping-form/save")
+	@Path("/save")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public DataResponse save(MappingForm mappingForm) {
@@ -68,21 +68,21 @@ public class MappingFormResource {
 	}
 
 	@GET
-	@Path("/mapping-form/get")
+	@Path("/get")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<MappingForm> get() {
 		return mappingFormFacade.findAll();
 	}
 
 	@GET
-	@Path("/mapping-form/get/{form-id}")
+	@Path("/get/{form-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public MappingForm getById(@PathParam("form-id") Integer formId) {
 		return mappingFormFacade.find(formId);
 	}
 
 	@GET
-	@Path("/mapping-form/get-last/{org-id}")
+	@Path("/get-last/{org-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public MappingForm getLast(@PathParam("org-id") Integer orgId) {
 		MappingForm form = mappingFormFacade.getLastByOrg(orgId);

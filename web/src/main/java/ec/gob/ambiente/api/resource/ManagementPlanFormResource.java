@@ -24,7 +24,7 @@ import ec.gob.ambiente.infomanglar.model.PlanInfo;
 import ec.gob.ambiente.infomanglar.model.PlannedActivity;
 import ec.gob.ambiente.infomanglar.services.HistoryChangeFacade;
 
-@Path("/")
+@Path("/management-plan-form")
 public class ManagementPlanFormResource {
 
 	@EJB
@@ -37,7 +37,7 @@ public class ManagementPlanFormResource {
 	private UserFacade userFacade;
 
 	@POST
-	@Path("/management-plan-form/save")
+	@Path("/save")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public DataResponse save(ManagementPlanForm managementPlanForm) {
@@ -66,7 +66,7 @@ public class ManagementPlanFormResource {
 	}
 
 	@GET
-	@Path("/management-plan-form/get")
+	@Path("/get")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<ManagementPlanForm> get() {
 		return managementPlanFormFacade.findAll();
@@ -74,14 +74,14 @@ public class ManagementPlanFormResource {
 
 
 	@GET
-	@Path("/management-plan-form/get/{form-id}")
+	@Path("/get/{form-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public ManagementPlanForm getById(@PathParam("form-id") Integer formId) {
 		return managementPlanFormFacade.find(formId);
 	}
 
 	@GET
-	@Path("/management-plan-form/get-last/{org-id}")
+	@Path("/get-last/{org-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public ManagementPlanForm getLast(@PathParam("org-id") Integer orgId) {
 		ManagementPlanForm form = managementPlanFormFacade.getLastByOrg(orgId);
@@ -95,6 +95,6 @@ public class ManagementPlanFormResource {
 	public List<String> getSectors(@PathParam("org-id") Integer orgId) {
 		ManagementPlanForm form = managementPlanFormFacade.getLastByOrg(orgId);
 		return ReportsUtil.getFromManagmentPlanForm(form, "activity");
-	}
+	} // TODO: Move this endpoint to other class
 
 }

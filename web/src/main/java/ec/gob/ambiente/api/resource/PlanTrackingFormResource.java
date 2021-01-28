@@ -23,7 +23,7 @@ import ec.gob.ambiente.infomanglar.services.EmailNotificationFacade;
 import ec.gob.ambiente.infomanglar.services.HistoryChangeFacade;
 import ec.gob.ambiente.infomanglar.services.OrganizationsUserFacade;
 
-@Path("/")
+@Path("/plan-tracking-form")
 public class PlanTrackingFormResource {
 
 	@EJB
@@ -42,7 +42,7 @@ public class PlanTrackingFormResource {
 	private HistoryChangeFacade historyChangeFacade;
 
 	@POST
-	@Path("/plan-tracking-form/save")
+	@Path("/save")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public DataResponse save(PlanTrackingForm planTrackingForm) {
@@ -61,7 +61,7 @@ public class PlanTrackingFormResource {
 	}
 
 	@GET
-	@Path("/plan-tracking-form/get")
+	@Path("/get")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<PlanTrackingForm> get() {
 		return planTrackingFormFacade.findAll();
@@ -69,14 +69,14 @@ public class PlanTrackingFormResource {
 
 
 	@GET
-	@Path("/plan-tracking-form/get/{form-id}")
+	@Path("/get/{form-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public PlanTrackingForm getById(@PathParam("form-id") Integer formId) {
 		return planTrackingFormFacade.find(formId);
 	}
 
 	@GET
-	@Path("/plan-tracking-form/get-last/{org-id}")
+	@Path("/get-last/{org-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public PlanTrackingForm getLast(@PathParam("org-id") Integer orgId) {
 		PlanTrackingForm form = planTrackingFormFacade.getLastByOrg(orgId);

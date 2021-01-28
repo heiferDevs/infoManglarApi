@@ -21,7 +21,7 @@ import ec.gob.ambiente.infomanglar.forms.services.EvidenceFormFacade;
 import ec.gob.ambiente.infomanglar.model.EvidenceActivity;
 import ec.gob.ambiente.infomanglar.services.HistoryChangeFacade;
 
-@Path("/")
+@Path("/evidence-form")
 public class EvidenceFormResource {
 
 	@EJB
@@ -34,7 +34,7 @@ public class EvidenceFormResource {
 	private UserFacade userFacade;
 
 	@POST
-	@Path("/evidence-form/save")
+	@Path("/save")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public DataResponse save(EvidenceForm evidenceForm) {
@@ -57,21 +57,21 @@ public class EvidenceFormResource {
 	}
 
 	@GET
-	@Path("/evidence-form/get")
+	@Path("/get")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<EvidenceForm> get() {
 		return evidenceFormFacade.findAll();
 	}
 
 	@GET
-	@Path("/evidence-form/get/{form-id}")
+	@Path("/get/{form-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public EvidenceForm getById(@PathParam("form-id") Integer formId) {
 		return evidenceFormFacade.find(formId);
 	}
 
 	@GET
-	@Path("/evidence-form/get-last/{org-id}/{user-id}")
+	@Path("/get-last/{org-id}/{user-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public EvidenceForm getLast(@PathParam("org-id") Integer orgId, @PathParam("user-id") Integer userId) {
 		EvidenceForm form = evidenceFormFacade.getLastByOrgAndUser(orgId, userId);

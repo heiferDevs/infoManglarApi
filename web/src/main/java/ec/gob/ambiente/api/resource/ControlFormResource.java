@@ -21,7 +21,7 @@ import ec.gob.ambiente.infomanglar.forms.model.PricesForm;
 import ec.gob.ambiente.infomanglar.forms.services.ControlFormFacade;
 import ec.gob.ambiente.infomanglar.services.HistoryChangeFacade;
 
-@Path("/")
+@Path("/control-form")
 public class ControlFormResource {
 
 	@EJB
@@ -34,7 +34,7 @@ public class ControlFormResource {
 	private UserFacade userFacade;
 
 	@POST
-	@Path("/control-form/save")
+	@Path("/save")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public DataResponse save(ControlForm controlForm) {
@@ -54,14 +54,14 @@ public class ControlFormResource {
 	}
 
 	@GET
-	@Path("/control-form/get")
+	@Path("/get")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<ControlForm> get() {
 		return controlFormFacade.findAll();
 	}
 
 	@GET
-	@Path("/control-form/get-last/{org-id}")
+	@Path("/get-last/{org-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public ControlForm getLast(@PathParam("org-id") Integer orgId) {
 		ControlForm form = controlFormFacade.getLastByOrg(orgId);
@@ -70,7 +70,7 @@ public class ControlFormResource {
 	}
 
 	@GET
-	@Path("/control-form/get/{form-id}")
+	@Path("/get/{form-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public ControlForm getById(@PathParam("form-id") Integer formId) {
 		return controlFormFacade.find(formId);

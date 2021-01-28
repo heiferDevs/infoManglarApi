@@ -23,7 +23,7 @@ import ec.gob.ambiente.infomanglar.services.EmailNotificationFacade;
 import ec.gob.ambiente.infomanglar.services.HistoryChangeFacade;
 import ec.gob.ambiente.infomanglar.services.OrganizationsUserFacade;
 
-@Path("/")
+@Path("/desc-projects-form")
 public class DescProjectsFormResource {
 
 	@EJB
@@ -42,7 +42,7 @@ public class DescProjectsFormResource {
 	private HistoryChangeFacade historyChangeFacade;
 
 	@POST
-	@Path("/desc-projects-form/save")
+	@Path("/save")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public DataResponse save(DescProjectsForm descProjectsForm) {
@@ -65,21 +65,21 @@ public class DescProjectsFormResource {
 	}
 
 	@GET
-	@Path("/desc-projects-form/get")
+	@Path("/get")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<DescProjectsForm> get() {
 		return descProjectsFormFacade.findAll();
 	}
 
 	@GET
-	@Path("/desc-projects-form/get/{form-id}")
+	@Path("/get/{form-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public DescProjectsForm getById(@PathParam("form-id") Integer formId) {
 		return descProjectsFormFacade.find(formId);
 	}
 
 	@GET
-	@Path("/desc-projects-form/get-last/{org-id}")
+	@Path("/get-last/{org-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public DescProjectsForm getLast(@PathParam("org-id") Integer orgId) {
 		DescProjectsForm form = descProjectsFormFacade.getLastByOrg(orgId);

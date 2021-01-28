@@ -19,7 +19,7 @@ import ec.gob.ambiente.infomanglar.forms.model.SocialIndicatorsForm;
 import ec.gob.ambiente.infomanglar.forms.services.SocialIndicatorsFormFacade;
 import ec.gob.ambiente.infomanglar.services.HistoryChangeFacade;
 
-@Path("/")
+@Path("/social-indicators-form")
 public class SocialndicatorsFormResource {
 
 	@EJB
@@ -32,7 +32,7 @@ public class SocialndicatorsFormResource {
 	private UserFacade userFacade;
 
 	@POST
-	@Path("/social-indicators-form/save")
+	@Path("/save")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public DataResponse save(SocialIndicatorsForm socialIndicatorsForm) {
@@ -47,14 +47,14 @@ public class SocialndicatorsFormResource {
 	}
 
 	@GET
-	@Path("/social-indicators-form/get")
+	@Path("/get")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<SocialIndicatorsForm> get() {
 		return socialIndicatorsFormFacade.findAll();
 	}
 
 	@GET
-	@Path("/social-indicators-form/get-last/{org-id}/{user-id}")
+	@Path("/get-last/{org-id}/{user-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public SocialIndicatorsForm getLast(@PathParam("org-id") Integer orgId, @PathParam("user-id") Integer userId) {
 		SocialIndicatorsForm form = socialIndicatorsFormFacade.getLastByOrgAndUser(orgId, userId);
@@ -63,7 +63,7 @@ public class SocialndicatorsFormResource {
 	}
 
 	@GET
-	@Path("/social-indicators-form/get/{form-id}")
+	@Path("/get/{form-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public SocialIndicatorsForm getById(@PathParam("form-id") Integer formId) {
 		return socialIndicatorsFormFacade.find(formId);

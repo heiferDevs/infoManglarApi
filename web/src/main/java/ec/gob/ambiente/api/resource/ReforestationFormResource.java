@@ -19,7 +19,7 @@ import ec.gob.ambiente.infomanglar.forms.model.ReforestationForm;
 import ec.gob.ambiente.infomanglar.forms.services.ReforestationFormFacade;
 import ec.gob.ambiente.infomanglar.services.HistoryChangeFacade;
 
-@Path("/")
+@Path("/reforestation-form")
 public class ReforestationFormResource {
 
 	@EJB
@@ -32,7 +32,7 @@ public class ReforestationFormResource {
 	private UserFacade userFacade;
 
 	@POST
-	@Path("/reforestation-form/save")
+	@Path("/save")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public DataResponse save(ReforestationForm reforestationForm) {
@@ -47,7 +47,7 @@ public class ReforestationFormResource {
 	}
 
 	@GET
-	@Path("/reforestation-form/get")
+	@Path("/get")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<ReforestationForm> get() {
 		return reforestationFormFacade.findAll();
@@ -55,14 +55,14 @@ public class ReforestationFormResource {
 
 
 	@GET
-	@Path("/reforestation-form/get/{form-id}")
+	@Path("/get/{form-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public ReforestationForm getById(@PathParam("form-id") Integer formId) {
 		return reforestationFormFacade.find(formId);
 	}
 
 	@GET
-	@Path("/reforestation-form/get-last/{org-id}")
+	@Path("/get-last/{org-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public ReforestationForm getLast(@PathParam("org-id") Integer orgId) {
 		ReforestationForm form = reforestationFormFacade.getLastByOrg(orgId);

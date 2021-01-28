@@ -19,7 +19,7 @@ import ec.gob.ambiente.infomanglar.forms.model.SizeForm;
 import ec.gob.ambiente.infomanglar.forms.services.ShellSizeFormFacade;
 import ec.gob.ambiente.infomanglar.services.HistoryChangeFacade;
 
-@Path("/")
+@Path("/shell-size-form")
 public class ShellSizeFormResource {
 
 	@EJB
@@ -32,7 +32,7 @@ public class ShellSizeFormResource {
 	private UserFacade userFacade;
 
 	@POST
-	@Path("/shell-size-form/save")
+	@Path("/save")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public DataResponse save(ShellSizeForm shellSizeForm) {
@@ -50,7 +50,7 @@ public class ShellSizeFormResource {
 	}
 
 	@GET
-	@Path("/shell-size-form/get")
+	@Path("/get")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<ShellSizeForm> get() {
 		return shellSizeFormFacade.findAll();
@@ -58,14 +58,14 @@ public class ShellSizeFormResource {
 
 
 	@GET
-	@Path("/shell-size-form/get/{form-id}")
+	@Path("/get/{form-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public ShellSizeForm getById(@PathParam("form-id") Integer formId) {
 		return shellSizeFormFacade.find(formId);
 	}
 
 	@GET
-	@Path("/shell-size-form/get-last/{org-id}")
+	@Path("/get-last/{org-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public ShellSizeForm getLast(@PathParam("org-id") Integer orgId) {
 		ShellSizeForm form = shellSizeFormFacade.getLastByOrg(orgId);

@@ -23,7 +23,7 @@ import ec.gob.ambiente.infomanglar.model.HistoryChange;
 import ec.gob.ambiente.infomanglar.model.PriceDaily;
 import ec.gob.ambiente.infomanglar.services.HistoryChangeFacade;
 
-@Path("/")
+@Path("/prices-form")
 public class PricesFormResource {
 
 	@EJB
@@ -36,7 +36,7 @@ public class PricesFormResource {
 	private UserFacade userFacade;
 
 	@POST
-	@Path("/prices-form/save")
+	@Path("/save")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public DataResponse save(PricesForm pricesForm) {
@@ -59,21 +59,21 @@ public class PricesFormResource {
 	}
 
 	@GET
-	@Path("/prices-form/get")
+	@Path("/get")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<PricesForm> get() {
 		return pricesFormFacade.findAll();
 	}
 
 	@GET
-	@Path("/prices-form/get/{form-id}")
+	@Path("/get/{form-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public PricesForm getById(@PathParam("form-id") Integer formId) {
 		return pricesFormFacade.find(formId);
 	}
 
 	@GET
-	@Path("/prices-form/get-last/{org-id}")
+	@Path("/get-last/{org-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public PricesForm getLast(@PathParam("org-id") Integer orgId) {
 		PricesForm form = pricesFormFacade.getLastByOrg(orgId);

@@ -18,7 +18,7 @@ import ec.gob.ambiente.infomanglar.forms.model.FishingEffortForm;
 import ec.gob.ambiente.infomanglar.forms.services.FishingEffortFormFacade;
 import ec.gob.ambiente.infomanglar.services.HistoryChangeFacade;
 
-@Path("/")
+@Path("/fishing-effort-form")
 public class FishingEffortFormResource {
 
 	@EJB
@@ -31,7 +31,7 @@ public class FishingEffortFormResource {
 	private UserFacade userFacade;
 
 	@POST
-	@Path("/fishing-effort-form/save")
+	@Path("/save")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public DataResponse save(FishingEffortForm fishingEffortForm) {
@@ -46,21 +46,21 @@ public class FishingEffortFormResource {
 	}
 
 	@GET
-	@Path("/fishing-effort-form/get")
+	@Path("/get")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<FishingEffortForm> get() {
 		return fishingEffortFormFacade.findAll();
 	}
 
 	@GET
-	@Path("/fishing-effort-form/get/{form-id}")
+	@Path("/get/{form-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public FishingEffortForm getById(@PathParam("form-id") Integer formId) {
 		return fishingEffortFormFacade.find(formId);
 	}
 
 	@GET
-	@Path("/fishing-effort-form/get-last/{org-id}")
+	@Path("/get-last/{org-id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public FishingEffortForm getLast(@PathParam("org-id") Integer orgId) {
 		FishingEffortForm form = fishingEffortFormFacade.getLastByOrg(orgId);
