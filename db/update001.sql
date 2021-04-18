@@ -42,7 +42,7 @@ CREATE TABLE info_manglar.semi_annual_reports_forms
     CONSTRAINT fk_organization_manglar_id FOREIGN KEY (organization_manglar_id) REFERENCES info_manglar.organizations_manglar(organization_manglar_id)
 );
 ALTER TABLE info_manglar.semi_annual_reports_forms
-    OWNER to app_user;
+    OWNER to postgres;
 CREATE INDEX semi_annual_report_form_id ON info_manglar.semi_annual_reports_forms USING btree (semi_annual_report_form_id);
 CREATE SEQUENCE info_manglar.seq_semi_annual_reports_forms
     START WITH 1
@@ -69,7 +69,7 @@ CREATE TABLE info_manglar.technical_reports_forms
     CONSTRAINT fk_organization_manglar_id FOREIGN KEY (organization_manglar_id) REFERENCES info_manglar.organizations_manglar(organization_manglar_id)
 );
 ALTER TABLE info_manglar.technical_reports_forms
-    OWNER to app_user;
+    OWNER to postgres;
 CREATE INDEX technical_report_form_id ON info_manglar.technical_reports_forms USING btree (technical_report_form_id);
 CREATE SEQUENCE info_manglar.seq_technical_reports_forms
     START WITH 1
@@ -99,7 +99,7 @@ CREATE TABLE info_manglar.fishing_efforts_forms
     CONSTRAINT fk_organization_manglar_id FOREIGN KEY (organization_manglar_id) REFERENCES info_manglar.organizations_manglar(organization_manglar_id)
 );
 ALTER TABLE info_manglar.fishing_efforts_forms
-    OWNER to app_user;
+    OWNER to postgres;
 CREATE INDEX fishing_effort_form_id ON info_manglar.fishing_efforts_forms USING btree (fishing_effort_form_id);
 CREATE SEQUENCE info_manglar.seq_fishing_efforts_forms
     START WITH 1
@@ -122,7 +122,7 @@ CREATE TABLE info_manglar.limits_forms
     CONSTRAINT fk_organization_manglar_id FOREIGN KEY (organization_manglar_id) REFERENCES info_manglar.organizations_manglar(organization_manglar_id)
 );
 ALTER TABLE info_manglar.limits_forms
-    OWNER to app_user;
+    OWNER to postgres;
 CREATE INDEX limits_form_id ON info_manglar.limits_forms USING btree (limits_form_id);
 CREATE SEQUENCE info_manglar.seq_limits_forms
     START WITH 1
@@ -146,7 +146,7 @@ CREATE TABLE info_manglar.agreements
     CONSTRAINT fk_agreements FOREIGN KEY (official_docs_form_id) REFERENCES info_manglar.officials_docs_forms(official_docs_form_id)
 );
 ALTER TABLE info_manglar.agreements
-    OWNER to app_user;
+    OWNER to postgres;
 CREATE INDEX agreement_id ON info_manglar.agreements USING btree (agreement_id);
 CREATE SEQUENCE info_manglar.seq_agreements
     START WITH 1
@@ -166,7 +166,7 @@ CREATE TABLE info_manglar.config_forms
     version character varying(255)
 );
 ALTER TABLE info_manglar.config_forms
-    OWNER to app_user;
+    OWNER to postgres;
 CREATE INDEX config_form_id ON info_manglar.config_forms USING btree (config_form_id);
 CREATE SEQUENCE info_manglar.seq_config_forms
     START WITH 1

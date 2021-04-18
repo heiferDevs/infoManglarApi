@@ -66,7 +66,7 @@ CREATE TABLE info_manglar.organization_info_forms
 );
 
 ALTER TABLE info_manglar.organization_info_forms
-    OWNER to app_user;
+    OWNER to postgres;
 
 CREATE INDEX organization_info_form_id ON info_manglar.organization_info_forms USING btree (organization_info_form_id);
 
@@ -103,7 +103,7 @@ CREATE TABLE info_manglar.pdf_report_forms
 );
 
 ALTER TABLE info_manglar.pdf_report_forms
-    OWNER to app_user;
+    OWNER to postgres;
 
 CREATE INDEX pdf_report_form_id ON info_manglar.pdf_report_forms USING btree (pdf_report_form_id);
 
