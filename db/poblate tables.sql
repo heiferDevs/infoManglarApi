@@ -1,3 +1,6 @@
+INSERT INTO public.nationalities (nati_id, nati_description, nati_status)
+VALUES (1,'Ecuatoriana', true);
+
 INSERT INTO public.geographical_locations (gelo_id, gelo_codification_inec, gelo_name, gelo_parent_id, zone_id, gelo_status, pglo_id, gelo_region, area_id, area_id_municipio, gelo_observations)
 VALUES ( 1,null,'ECUADOR',null,null,true,null,null,null,null,null),
 ( 2,null,'ESPAÑA',null,null,true,null,null,null,null,null),
@@ -1792,3 +1795,16 @@ VALUES ( 1,null,'ECUADOR',null,null,true,null,null,null,null,null),
 ( 1847,'AII','AGUA INTERIOR INSULAR',1836,null,true,null,null,null,null,null),
 ( 1848,'AI','AGUAS INTERNACIONALES',1837,null,true,null,null,null,null,null),
 ( 1849,170751,'MINDO',106,null,true,null,null,null,null,null);
+
+INSERT INTO public.treatments_types (trty_id, trty_name, trty_status)
+VALUES (1,'Sr.', true),
+(2,'Sra.', t);
+
+INSERT INTO public.contacts_forms (cofo_id, cofo_name, cofo_status, cofo_order)
+VALUES (1, 'COFONAME' true, 1),
+(6, 'cofo6' true, 2),
+(4, 'cofo4' true, 3),
+(2, 'cofo2' true, 4),
+(3, 'cofo3' true, 5),
+(5, 'cofo5' true, 6),
+(7, 'cofo7' true, 7);
