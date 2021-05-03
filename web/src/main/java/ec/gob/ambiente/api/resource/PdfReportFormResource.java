@@ -52,7 +52,7 @@ public class PdfReportFormResource {
 	}
 
 	@GET
-	@Path("/pdf-report-form-rm/{form-id}")
+	@Path("/rm/{form-id}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public DataResponse remove(@PathParam("form-id") Integer formId) {
