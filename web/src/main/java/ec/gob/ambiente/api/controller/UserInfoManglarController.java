@@ -154,7 +154,7 @@ public class UserInfoManglarController implements Serializable {
 
 	public boolean guardar(String role) {
 		try {
-			socioManglarBean.getUsuario().setUserTempPassword(JsfUtil.generatePassword());
+			socioManglarBean.getUsuario().setUserTempPassword("abc12345"/*JsfUtil.generatePassword()*/);
 			socioManglarBean.getUsuario()
 				.setUserPassword(JsfUtil.claveEncriptadaSHA1(socioManglarBean.getUsuario()
 				.getUserTempPassword()));
